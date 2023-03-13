@@ -34,21 +34,13 @@ const start = async () => {
   } = process.env;
   try {
     mongoose.set("strictQuery", false);
-    // mongodb+srv://<username>:<password>@marketplace.oibm3y8.mongodb.net/?retryWrites=true&w=majority
-    // var db = "mongodb://localhost:27017/example";
-    // await mongoose.connect("mongodb://localhost:27017/marketplace");
 
     await mongoose.connect(`mongodb://${username}:${password}@${host}:${dbPort}`);
-    // await mongoose.connect(`mongodb://${username}:${password}@${host}:${dbPort}`, {
-    //   useNewUrlParser: true,
-    //   useUnifiedTopology: true,
-    // });
-
     syncUsers(await user.find({}));
 
     app.listen(port || 3000, () => console.log(`Server started on port ${port}`));
   } catch (error) {
-    console.error(error, "WETINE DEY");
+    console.error(error);
     process.exit(1);
   }
 };
