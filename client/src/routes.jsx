@@ -4,6 +4,7 @@ import RegistrationForm from "./components/authentication/RegistrationForm";
 import LoginForm from "./components/authentication/LoginForm";
 import CreateProductForm from "./components/product/CreateProductForm";
 import ViewProduct from "./components/product/ViewProduct";
+import Inbox from "./components/chat/Inbox";
 
 const routes = [
   {
@@ -33,6 +34,10 @@ const routes = [
       {
         path: "product/:_id",
         element: <ViewProduct />,
+      },
+      {
+        path: "inbox",
+        element: <Inbox />,
       },
     ],
   },
